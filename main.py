@@ -11,39 +11,39 @@ async def on_ready():
 
 @bot.command()
 async def oyshop(ctx):
-        await ctx.message.delete()
-        embed=discord.Embed(title="Oy Shop", url="https://www.oyshop.fr/", description="Le Oy shop est le shop de Ecko vous pouvez y trouver plein de vêtements de très bonne qualité", color=0xffffff)
-        embed.set_author(name="Shop Ecko", url="https://www.oyshop.fr/", icon_url="https://assets.bigcartel.com/theme_images/56559731/logo2OY.png?auto=format&fit=max&h=240&w=1000")
-        embed.set_thumbnail(url="https://assets.bigcartel.com/theme_images/56559731/logo2OY.png?auto=format&fit=max&h=240&w=1000")
-        embed.add_field(name="Lien du Oy Shop:", value="https://www.oyshop.fr/", inline=True)
-        embed.set_footer(text="Oy shop")
-        await ctx.send(embed=embed)
+await ctx.message.delete()
+	embed=discord.Embed(title="Oy Shop", url="https://www.oyshop.fr/", description="Le Oy shop est le shop de Ecko vous pouvez y trouver plein de vêtements de très bonne qualité", color=0xffffff)
+	embed.set_author(name="Shop Ecko", url="https://www.oyshop.fr/", icon_url="https://assets.bigcartel.com/theme_images/56559731/logo2OY.png?auto=format&fit=max&h=240&w=1000")
+   	embed.set_thumbnail(url="https://assets.bigcartel.com/theme_images/56559731/logo2OY.png?auto=format&fit=max&h=240&w=1000")
+   	embed.add_field(name="Lien du Oy Shop:", value="https://www.oyshop.fr/", inline=True)
+   	embed.set_footer(text="Oy shop")
+   	await ctx.send(embed=embed)
 
 @bot.command()
 async def codecreateur(ctx):
-        await ctx.message.delete()
-        embed = discord.Embed(title="Code Créateur",
+  	await ctx.message.delete()
+    embed = discord.Embed(title="Code Créateur",
                               description="Utilisez le code créateur SALVECKO pour soutenir Ecko!")
-        embed.set_author(name="Ecko",
+   	embed.set_author(name="Ecko",
                          icon_url="https://cdn.discordapp.com/avatars/620340684150407179/6ee1539a66044b4ed216ea0826fa5a5e.png?size=128")
-        embed.set_thumbnail(
+   	embed.set_thumbnail(
                 url="https://static-cdn.jtvnw.net/jtv_user_pictures/7cbf35e6-49de-4c76-81f3-52a9e63ae1e0-profile_image-70x70.png")
-        embed.add_field(name="Code Créateur:", value="SALVECKO", inline=True)
-	embed.add_field(name="Tuto de comment mettre le code créateur:", value="https://clips.twitch.tv/CulturedResourcefulNuggetsFutureMan-JrAs4TWCyd33Fbll", inline=True)
-        await ctx.send(embed=embed)
+   	embed.add_field(name="Code Créateur:", value="SALVECKO", inline=True)
+   	embed.add_field(name="Tuto de comment mettre le code créateur:", value="https://clips.twitch.tv/CulturedResourcefulNuggetsFutureMan-JrAs4TWCyd33Fbll", inline=True)
+   	await ctx.send(embed=embed)
 
 @bot.event
 async def on_member_join(member):
-        print("Quelqu'un a rejoins")
-        channel = bot.get_channel(683769890888351811)
-        embed=discord.Embed(title="Bienvenue", url="https://www.twitch.tv/salvecko", description="Tout le monde te souhaite la bienvenue dans l':ekip112:SalveckOY", color=0xffffff)
-        embed.set_author(name="Bienvenue !!", url="https://www.twitch.tv/salvecko", icon_url="https://static-cdn.jtvnw.net/jtv_user_pictures/7cbf35e6-49de-4c76-81f3-52a9e63ae1e0-profile_image-70x70.png")
-        embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/762297421044121611.png?v=1")
-        await channel.send(embed=embed)
+   	print("Quelqu'un a rejoins")
+  	channel = bot.get_channel(683769890888351811)
+	embed=discord.Embed(title="Bienvenue", url="https://www.twitch.tv/salvecko", description="Tout le monde te souhaite la bienvenue dans l':ekip112:SalveckOY", color=0xffffff)
+   	embed.set_author(name="Bienvenue !!", url="https://www.twitch.tv/salvecko", icon_url="https://static-cdn.jtvnw.net/jtv_user_pictures/7cbf35e6-49de-4c76-81f3-52a9e63ae1e0-profile_image-70x70.png")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/762297421044121611.png?v=1")
+    await channel.send(embed=embed)
 @bot.command()
 @commands.has_permissions(ban_members = True)
 async def ban(ctx, user: discord.User, *, reason="Aucune raison n'a été donné"):
-    await ctx.guild.ban(user, reason=reason)
+   	await ctx.guild.ban(user, reason=reason)
     await ctx.send(f"{user} à été ban pour la raison suivante : {reason}.")
     # await ctx.guild.ban(user, reason = reason)
     embed = discord.Embed(title="**Banissement**", description="Un modérateur a frappé !",
