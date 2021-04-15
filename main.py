@@ -34,6 +34,9 @@ async def codecreateur(ctx):
 @bot.event
 async def on_member_join(member):
         channel = bot.get_channel(683769890888351811)
-        await channel.send(f"Bienvenue dans l'ekip sale bg {member.mention} ! :SalveckOY::ekip112:") 
+        embed=discord.Embed(title="Bienvenue", url="https://www.twitch.tv/salvecko", description="Tout le monde te souhaite la bienvenue dans l':ekip112:SalveckOY", color=0xffffff)
+        embed.set_author(name="Bienvenue !!", url="https://www.twitch.tv/salvecko", icon_url="https://static-cdn.jtvnw.net/jtv_user_pictures/7cbf35e6-49de-4c76-81f3-52a9e63ae1e0-profile_image-70x70.png")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/762297421044121611.png?v=1")
+        await channel.send(embed=embed)
 
 bot.run(token)
