@@ -11,7 +11,7 @@ async def on_ready():
 
 @bot.command()
 async def oyshop(ctx):
-await ctx.message.delete()
+	await ctx.message.delete()
 	embed=discord.Embed(title="Oy Shop", url="https://www.oyshop.fr/", description="Le Oy shop est le shop de Ecko vous pouvez y trouver plein de vêtements de très bonne qualité", color=0xffffff)
 	embed.set_author(name="Shop Ecko", url="https://www.oyshop.fr/", icon_url="https://assets.bigcartel.com/theme_images/56559731/logo2OY.png?auto=format&fit=max&h=240&w=1000")
    	embed.set_thumbnail(url="https://assets.bigcartel.com/theme_images/56559731/logo2OY.png?auto=format&fit=max&h=240&w=1000")
@@ -38,7 +38,7 @@ async def on_member_join(member):
   	channel = bot.get_channel(683769890888351811)
 	embed=discord.Embed(title="Bienvenue", url="https://www.twitch.tv/salvecko", description="Tout le monde te souhaite la bienvenue dans l':ekip112:SalveckOY", color=0xffffff)
    	embed.set_author(name="Bienvenue !!", url="https://www.twitch.tv/salvecko", icon_url="https://static-cdn.jtvnw.net/jtv_user_pictures/7cbf35e6-49de-4c76-81f3-52a9e63ae1e0-profile_image-70x70.png")
-    embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/762297421044121611.png?v=1")
+ 	embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/762297421044121611.png?v=1")
     await channel.send(embed=embed)
 @bot.command()
 @commands.has_permissions(ban_members = True)
