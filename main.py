@@ -34,6 +34,6 @@ async def codecreateur(ctx):
 @bot.event
 async def on_member_join(member):
         channel = bot.get_channel(683769890888351811)
-        ctx.channel.sendf("Bienvenue dans l'ekip sale bg {member.mention} ! :SalveckOY::ekip112:") 
+        ctx.channel.send(f"Bienvenue dans l'ekip sale bg {member.mention} ! :SalveckOY::ekip112:") 
 
 bot.run(token)
