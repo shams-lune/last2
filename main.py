@@ -22,7 +22,7 @@ async def oyshop(ctx):
 @bot.command()
 async def codecreateur(ctx):
   	await ctx.message.delete()
-    embed = discord.Embed(title="Code Créateur",
+    	embed = discord.Embed(title="Code Créateur",
                               description="Utilisez le code créateur SALVECKO pour soutenir Ecko!")
    	embed.set_author(name="Ecko",
                          icon_url="https://cdn.discordapp.com/avatars/620340684150407179/6ee1539a66044b4ed216ea0826fa5a5e.png?size=128")
