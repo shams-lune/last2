@@ -29,7 +29,7 @@ async def codecreateur(ctx):
    	embed.set_thumbnail(
                 url="https://static-cdn.jtvnw.net/jtv_user_pictures/7cbf35e6-49de-4c76-81f3-52a9e63ae1e0-profile_image-70x70.png")
    	embed.add_field(name="Code Créateur:", value="SALVECKO", inline=True)
-   	embed.add_field(name="Tuto de comment mettre le code créateur:", value="https://clips.twitch.tv/CulturedResourcefulNuggetsFutureMan-JrAs4TWCyd33Fbll", inline=False)
+   	embed.add_field(name="Tuto de comment mettre le code créateur:", value="https://clips.twitch.tv/CulturedResourcefulNuggetsFutureMan-JrAs4TWCyd33Fbll", inline=True)
    	await ctx.send(embed=embed)
 
 @bot.event
