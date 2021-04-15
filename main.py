@@ -39,5 +39,53 @@ async def on_member_join(member):
         embed.set_author(name="Bienvenue !!", url="https://www.twitch.tv/salvecko", icon_url="https://static-cdn.jtvnw.net/jtv_user_pictures/7cbf35e6-49de-4c76-81f3-52a9e63ae1e0-profile_image-70x70.png")
         embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/762297421044121611.png?v=1")
         await channel.send(embed=embed)
+@bot.command()
+@commands.has_permissions(ban_members = True)
+async def ban(ctx, user: discord.User, *, reason="Aucune raison n'a été donné"):
+    await ctx.guild.ban(user, reason=reason)
+    await ctx.send(f"{user} à été ban pour la raison suivante : {reason}.")
+    # await ctx.guild.ban(user, reason = reason)
+    embed = discord.Embed(title="**Banissement**", description="Un modérateur a frappé !",
+                          url="https://www.youtube.com/channel/UChDVo_Uqomuk7KnMVp-Lhhw?view_as=subscriber",
+                          color=0x423A80)
+    embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url,
+                     url="https://www.youtube.com/channel/UChDVo_Uqomuk7KnMVp-Lhhw?view_as=subscriber")
+    embed.set_thumbnail(url="https://discordemoji.com/assets/emoji/BanneHammer.png")
+    embed.add_field(name="Membre banni", value=user.name, inline=True)
+    embed.add_field(name="Raison", value=reason, inline=True)
+    embed.add_field(name="Modérateur", value=ctx.author.name, inline=True)
+    embed.set_footer(text=random.choice(funFact))
 
+    await ctx.send(embed=embed)
+
+
+
+@bot.command()
+@commands.has_permissions(ban_members = True)
+async def unban(ctx,
+				user, *reason):
+	reason = " ".join(reason)
+	userName, userId = user.split("#")
+	bannedUsers = await ctx.guild.bans()
+	for i in bannedUsers:
+		if i.user.name == userName and i.user.discriminator == userId:
+			await ctx.guild.unban(i.user, reason = reason)
+			await ctx.send(f"{user} à été unban.")
+			return
+	#Ici on sait que lutilisateur na pas ete trouvé
+	await ctx.send(f"L'utilisateur {user} n'est pas dans la liste des bans")
+
+@bot.command()
+@commands.has_permissions(kick_members = True)
+async def kick(ctx, user : discord.User, *reason):
+	reason = " ".join(reason)
+	await ctx.guild.kick(user, reason = reason)
+	await ctx.send(f"{user} à été kick.")
+
+
+@bot.command()
+async def clear(ctx, nombre : int):
+	messages = await ctx.channel.history(limit = nombre + 1).flatten()
+	for message in messages:
+		await message.delete()
 bot.run(token)
