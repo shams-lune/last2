@@ -31,4 +31,9 @@ async def codecreateur(ctx):
         embed.add_field(name="Code Créateur:", value="SALVECKO", inline=True)
         await ctx.send(embed=embed)
 
+@bot.event
+async def on_member_join(member):
+        channel = bot.get_channel(683769890888351811)
+        ctx.channel.send("Bienvenue dans l'ekip sale bg ! :SalveckOY::ekip112:") 
+
 bot.run(token)
