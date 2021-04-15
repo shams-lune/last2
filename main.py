@@ -1,7 +1,9 @@
 import discord
 from discord.ext import commands
+import os
 
 bot = commands.Bot(command_prefix="!")
+token = os.getenv("DISCORD_BOT_TOKEN")
 
 @bot.event
 async def on_ready():
@@ -26,4 +28,4 @@ async def codecreateur(ctx):
                 url="https://static-cdn.jtvnw.net/jtv_user_pictures/7cbf35e6-49de-4c76-81f3-52a9e63ae1e0-profile_image-70x70.png")
         await ctx.send(embed=embed)
 
-bot.run(process.env.TOKEN)
+bot.run(token)
