@@ -11,6 +11,7 @@ async def on_ready():
 
 @bot.command()
 async def oyshop(ctx):
+        await ctx.message.delete()
         embed=discord.Embed(title="Oy Shop", url="https://www.oyshop.fr/", description="Le Oy shop est le shop de Ecko vous pouvez y trouver plein de vêtements de très bonne qualité", color=0xffffff)
         embed.set_author(name="Shop Ecko", url="https://www.oyshop.fr/", icon_url="https://assets.bigcartel.com/theme_images/56559731/logo2OY.png?auto=format&fit=max&h=240&w=1000")
         embed.set_thumbnail(url="https://assets.bigcartel.com/theme_images/56559731/logo2OY.png?auto=format&fit=max&h=240&w=1000")
@@ -20,6 +21,7 @@ async def oyshop(ctx):
 
 @bot.command()
 async def codecreateur(ctx):
+        await ctx.message.delete()
         embed = discord.Embed(title="Code Créateur",
                               description="Utilisez le code créateur SALVECKO pour soutenir Ecko!")
         embed.set_author(name="Ecko",
