@@ -22,7 +22,7 @@ async def oyshop(ctx):
 
 @bot.command(pass_context=True)
 async def mc(ctx):
-    emoji = get(ctx.message.server.emojis, name=":slight_smile:")
+    emoji = get(ctx.message.emojis, name=":slight_smile:")
     await ctx.message.delete()
     embed=discord.Embed(title="Minecraft FTB infinty involved", url="https://www.feed-the-beast.com/", description="(Cliquez sur le message au dessus pour télécharger le launcher)", color=0x005eff)
     embed.set_author(name="Epithut", icon_url="https://cdn.discordapp.com/avatars/539582678727393302/3333f80894f164eaec05e5bc2760adaf.png?size=128")
