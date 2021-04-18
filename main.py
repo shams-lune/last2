@@ -23,7 +23,7 @@ async def oyshop(ctx):
 @bot.command()
 async def mc(ctx):
     await ctx.message.delete()
-    embed=discord.Embed(title="Minecraft FTB infinty involved", url="https://www.feed-the-beast.com/", description="(Cliquez sur le message au dessus pour télécharger le launcher)", color=0x005eff)
+    embed=discord.Embed(title="Minecraft FTB infinty involved", url="https://www.feed-the-beast.com/", description="(Cliquez sur le message au dessus pour télécharger le launcher)", color=0x37ff00)
     embed.set_author(name="Epithut", icon_url="https://cdn.discordapp.com/avatars/539582678727393302/3333f80894f164eaec05e5bc2760adaf.png?size=128")
     embed.add_field(name="Serveur minecraft FTB infinty involved ouvert à tous :", value="ip: 51.254.81.62:27110", inline=False)
     embed.add_field(name="Règles:", value="Règles: - respecter les autres joueurs que ce sois dans le chat ou en jeux  - le vole ou la destruction volontaire est interdite - je m'octroie le droit de ban toute personne ne respectant pas ces règles (je paye après tout le serveur ahah) pour nous rejoindre", inline=False)
