@@ -20,7 +20,7 @@ async def oyshop(ctx):
     embed.set_footer(text="Oy shop")
     await ctx.send(embed=embed)
 
-@bot.command()
+@bot.command(pass_context=True)
 async def mc(ctx):
     emoji = get(ctx.message.server.emojis, name=":slight_smile:")
     await ctx.message.delete()
