@@ -21,13 +21,14 @@ async def oyshop(ctx):
 
 @bot.command()
 async def mc(ctx):
+    emoji = get(ctx.message.server.emojis, name=":slight_smile:")
     await ctx.message.delete()
     embed=discord.Embed(title="Minecraft FTB infinty involved", url="https://www.feed-the-beast.com/", description="(Cliquez sur le message au dessus pour télécharger le launcher)", color=0x005eff)
     embed.set_author(name="Epithut", icon_url="https://cdn.discordapp.com/avatars/539582678727393302/3333f80894f164eaec05e5bc2760adaf.png?size=128")
-    embed.add_field(name="Serveur minecraft FTB infinty involved ouvert à tous :", value="ip: 51.254.81.62:27110", inline=True)
-    embed.add_field(name="Règles:", value="Règles: - respecter les autres joueurs que ce sois dans le chat ou en jeux  - le vole ou la destruction volontaire est interdite - je m'octroie le droit de ban toute personne ne respectant pas ces règles (je paye après tout le serveur ahah) pour nous rejoindre", inline=True)
-    embed.add_field(name="Pour nous rejoindre:", value='Télécharger le launcher -> https://www.feed-the-beast.com/ Ensuite dans celui si dans la section "browse" taper "FTB infity evolved" et cliquer dessus (pas infinty avolved skyblock mais l autre) une fois télécharger lancer le jeux connecter vous avec votre compte minecraft aller dans multiplayer et faite "Add server" ou "Nouveau serveur" et mettez l ip si dessus ', inline=True)
-    embed.set_footer(text=" Bon jeux à tous :slight_smile:")
+    embed.add_field(name="Serveur minecraft FTB infinty involved ouvert à tous :", value="ip: 51.254.81.62:27110", inline=False)
+    embed.add_field(name="Règles:", value="Règles: - respecter les autres joueurs que ce sois dans le chat ou en jeux  - le vole ou la destruction volontaire est interdite - je m'octroie le droit de ban toute personne ne respectant pas ces règles (je paye après tout le serveur ahah) pour nous rejoindre", inline=False)
+    embed.add_field(name="Pour nous rejoindre:", value='Télécharger le launcher -> https://www.feed-the-beast.com/ Ensuite dans celui si dans la section "browse" taper "FTB infity evolved" et cliquer dessus (pas infinty avolved skyblock mais l autre) une fois télécharger lancer le jeux connecter vous avec votre compte minecraft aller dans multiplayer et faite "Add server" ou "Nouveau serveur" et mettez l ip si dessus ', inline=False)
+    embed.set_footer(text=f" Bon jeux à tous {emoji}")
     await ctx.send(embed=embed)
 
 @bot.command()
