@@ -10,8 +10,8 @@ token = os.getenv("DISCORD_BOT_TOKEN")
 
 @bot.event
 async def on_ready():
-        print('Le bot est allumé')
-	await bot.change_presence(activity=discord.Streaming(name="SalvEcko", url="https://www.twitch.tv/salvecko"))
+    print('Le bot est allumé')
+    await bot.change_presence(activity=discord.Streaming(name="SalvEcko", url="https://www.twitch.tv/salvecko"))
 
 @bot.event
 async def on_message(message):
