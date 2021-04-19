@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 import os
+import json
+warnings = {}
 
 
 bot = commands.Bot(command_prefix="!")
@@ -45,6 +47,8 @@ async def on_message(message):
 	await message.add_reaction(":SalveckOY:740928694855663799")
     if message.content == "bijoir":
 	await message.add_reaction(":SalveckOY:740928694855663799")
+	
+
 
 @bot.command()
 async def oyshop(ctx):
