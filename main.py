@@ -21,7 +21,7 @@ async def on_message(message):
         await message.add_reaction(":ekip112:762297421044121611")
     if message.content == "Bonjour":
         await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "bonjour"
+    if message.content == "bonjour":
         await message.add_reaction(":SalveckOY:740928694855663799")
     if message.content == "Oy":
 	await message.add_reaction(":SalveckOY:740928694855663799")
