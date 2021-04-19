@@ -10,6 +10,41 @@ token = os.getenv("DISCORD_BOT_TOKEN")
 async def on_ready():
         print('Le bot est allumé')
 
+@bot.event
+async def on_message(message):
+    if message.content == "Ekip":
+        await message.add_reaction(":ekip112:762297421044121611")
+    if message.content == "ekip":
+	await message.add_reaction(":ekip112:762297421044121611")
+    if message.content == "Bonjour":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content == "bonjour"
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content == "Oy":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content = "oy":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content == "Hey":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content == "hey":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content == "Salut":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content == "salut":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content == "Bonsoir":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content == "bonsoir":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content == "Bonjoir":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content == "bonjoir":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content == "Bijoir":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+    if message.content == "bijoir":
+	await message.add_reaction(":SalveckOY:740928694855663799")
+
 @bot.command()
 async def oyshop(ctx):
     await ctx.message.delete()
