@@ -7,6 +7,7 @@ warnings = {}
 
 bot = commands.Bot(command_prefix="!")
 token = os.getenv("DISCORD_BOT_TOKEN")
+default_intents = discord.Intents.default()
 default_intents.members = True
 
 @bot.event
