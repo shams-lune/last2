@@ -52,6 +52,7 @@ async def on_message(message):
 	
 @bot.event
 async def on_member_join(member):
+        print(f"Quelle de l'{mejoi} à rejoint")
         mejoi == ":ekip112:762297421044121611"
         emoji == ":SalveckOY:740928694855663799"
         general_channel = bot.get_channel(683769890888351811)
