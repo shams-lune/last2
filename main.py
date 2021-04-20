@@ -90,10 +90,8 @@ async def codecreateur(ctx):
 @bot.event
 async def on_member_join(member):
     print("Quelqu'un a rejoins")
-    mejoi = ":ekip112:762297421044121611"
-    emoji = ":SalveckOY:740928694855663799"
     channel = bot.get_channel(683769890888351811)
-    embed=discord.Embed(title="Bienvenue", url="https://www.twitch.tv/salvecko", description=f"Tout le monde te souhaite la bienvenue dans l'{mejoi}{emoji}", color=0xffffff)
+    embed=discord.Embed(title="Bienvenue", url="https://www.twitch.tv/salvecko", description="Tout le monde te souhaite la bienvenue dans l'**Ekip**", color=0xffffff)
     embed.set_author(name="Bienvenue !!", url="https://www.twitch.tv/salvecko", icon_url="https://static-cdn.jtvnw.net/jtv_user_pictures/7cbf35e6-49de-4c76-81f3-52a9e63ae1e0-profile_image-70x70.png")
     embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/762297421044121611.png?v=1")
     await channel.send(embed=embed, delete_after=5.0)
