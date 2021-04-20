@@ -7,6 +7,7 @@ warnings = {}
 
 bot = commands.Bot(command_prefix="!")
 token = os.getenv("DISCORD_BOT_TOKEN")
+default_intents.members = True
 
 @bot.event
 async def on_ready():
@@ -48,7 +49,13 @@ async def on_message(message):
     if message.content == "bijoir":
         await message.add_reaction(":SalveckOY:740928694855663799")
 	
-
+@bot.event
+async def on_member_join(member):
+        mejoi == ":ekip112:762297421044121611"
+        emoji == ":SalveckOY:740928694855663799"
+        general_channel = bot.get_channel(683769890888351811)
+        general_channel.send(f"{emoji}Bienvenue sur le serveur discord de l'{mejoi} {member.display_name}, je t'invite à aller voir le salon  #roles !")
+    
 
 @bot.command()
 async def oyshop(ctx):
