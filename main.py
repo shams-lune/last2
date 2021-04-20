@@ -5,10 +5,10 @@ import json
 warnings = {}
 
 
-bot = commands.Bot(command_prefix="!")
+bot = commands.Bot(command_prefix="!", intents=intents)
 token = os.getenv("DISCORD_BOT_TOKEN")
-default_intents = discord.Intents.default()
-default_intents.members = True
+intents = discord.Intents.default()
+intents.members = True
 
 @bot.event
 async def on_ready():
