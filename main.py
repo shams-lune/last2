@@ -20,7 +20,7 @@ async def on_ready():
 @bot.listen()
 async def on_message(message):
     if "neige" in message.content.lower():
-        await message.channel.send('❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄')
+        await message.channel.send('❄🌨❄🌨')
         await bot.process_commands(message)
     if "ekip" in message.content.lower():
         await message.add_reaction(":ekip112:762297421044121611")
