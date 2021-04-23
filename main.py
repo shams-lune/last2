@@ -40,6 +40,10 @@ async def on_message(message):
         await message.add_reaction(":SalveckOY:740928694855663799")
     if "oy" in message.content.lower():
         await message.add_reaction(":SalveckOY:740928694855663799")
+    if ":SalveckOY:740928694855663799" in message.content.lower():
+        await message.add_reaction(":SalveckOY:740928694855663799")
+    if ":ekip112:762297421044121611" in message.content.lower():
+        await message.add_reaction(":ekip112:762297421044121611")
 	    
 
 @bot.command()
