@@ -17,39 +17,28 @@ async def on_ready():
     print('Le bot est allumé')
     await bot.change_presence(activity=discord.Streaming(name="SalvEcko", url="https://www.twitch.tv/salvecko"))
 
-@bot.event
+@bot.listen()
 async def on_message(message):
-    if message.content == "Ekip":
+    if "neige" in message.content.lower():
+        await message.channel.send('❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄🌨❄')
+        await bot.process_commands(message)
+    if "ekip" in message.content.lower():
         await message.add_reaction(":ekip112:762297421044121611")
-    if message.content == "ekip":
-        await message.add_reaction(":ekip112:762297421044121611")
-    if message.content == "Bonjour":
+    if "bonjour" in message.content.lower():
         await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "bonjour":
+    if "oy" in message.content.lower():
         await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "Oy":
+    if "hey" in message.content.lower():
         await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "oy":
+    if "salut" in message.content.lower():
         await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "Hey":
+    if "bonsoir" in message.content.lower():
         await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "hey":
+    if "bonjoir" in message.content.lower():
         await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "Salut":
+    if "bijoir" in message.content.lower():
         await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "salut":
-        await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "Bonsoir":
-        await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "bonsoir":
-        await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "Bonjoir":
-        await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "bonjoir":
-        await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "Bijoir":
-        await message.add_reaction(":SalveckOY:740928694855663799")
-    if message.content == "bijoir":
+    if "oy" in message.content.lower():
         await message.add_reaction(":SalveckOY:740928694855663799")
 	    
 
