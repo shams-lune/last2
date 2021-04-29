@@ -8,7 +8,7 @@ import requests
 
 
 token = os.getenv("DISCORD_BOT_TOKEN")
-header = os.getenv("API_KEY)
+header = os.getenv("API_KEY")
 intents = discord.Intents.default()
 intents.members = True
 guild_subscriptions = True
