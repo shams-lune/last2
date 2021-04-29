@@ -3,14 +3,97 @@ from discord.ext import commands
 import os
 import json
 warnings = {}
+import requests
 
 
 
 token = os.getenv("DISCORD_BOT_TOKEN")
+header = os.getenv("API_KEY)
 intents = discord.Intents.default()
 intents.members = True
 guild_subscriptions = True
 bot = commands.Bot(command_prefix="!", intents=intents)
+
+@bot.command()
+async def apex(ctx, arg1, arg2):
+    plateform = arg1
+    nom_du_joueur = arg2
+    r = requests.get(url="https://public-api.tracker.gg/v2/apex/standard/profile/"+ plateform + "/" + nom_du_joueur, headers=API_KEY)
+    data = r.json()
+
+    if arg1 == "origin":
+        embed=discord.Embed(title="**Stats pour** " +arg2+ " **[PC]**", colour=0xff0000)
+        embed.add_field(name="**Level:**", value=data['data']['segments'][0]['stats']['level']['displayValue'])
+        embed.add_field(name="**Rank:**", value=data['data']['segments'][0]['stats']['rankScore']['metadata']['rankName'])
+        embed.add_field(name="**Rank Score:**", value=data['data']['segments'][0]['stats']['rankScore']['value'])
+        embed.add_field(name="**Kills:**", value=data['data']['segments'][0]['stats']['kills']['displayValue'])
+        embed.add_field(name="Légende actuelle:", value=data['data']['segments'][1]['metadata']['name'])
+        embed.set_thumbnail(url=data['data']['segments'][1]['metadata']['imageUrl'])
+        embed.set_author(name=arg2, icon_url=data['data']['platformInfo']['avatarUrl'])
+        embed.set_image(url=f"{data['data']['segments'][0]['stats']['rankScore']['metadata']['iconUrl']}")
+        embed.set_footer(text="Par ! 𝕁𝕠𝕜𝕖𝕣#5236, api : tracker.gg", icon_url="https://cdn.discordapp.com/avatars/658714497778974762/806ca93cc1711a4023a127d680691598.png?size=128")
+        embed.add_field(name="Kill avec "+ data['data']['segments'][1]['metadata']['name'], value=arg2+" à fait " + data['data']['segments'][0]['stats']['kills']['displayValue']+ " kills avec " + data['data']['segments'][1]['metadata']['name'])
+        embed.add_field(name="Kill avec " + data['data']['segments'][2]['metadata']['name'], value=arg2+" à fait " + data['data']['segments'][0]['stats']['kills']['displayValue'] + ' kills avec '+ data['data']['segments'][2]['metadata']['name'])
+        embed.add_field(name="Plus d'info sur :", value="https://apex.tracker.gg/apex/profile/"+ arg1 +"/"+arg2+"/overview", inline=False)
+
+        await ctx.send(embed=embed)
+
+    if arg1 == "psn":
+        embed = discord.Embed(title="**Stats pour** " + arg2 + " **[PLAYSTATION]**", colour=0xff0000)
+        embed.add_field(name="**Level:**", value=data['data']['segments'][0]['stats']['level']['displayValue'])
+        embed.add_field(name="**Rank:**",
+                        value=data['data']['segments'][0]['stats']['rankScore']['metadata']['rankName'])
+        embed.add_field(name="**Rank Score:**", value=data['data']['segments'][0]['stats']['rankScore']['value'])
+        embed.add_field(name="**Kills:**", value=data['data']['segments'][0]['stats']['kills']['displayValue'])
+        embed.add_field(name="Légende actuelle:", value=data['data']['segments'][1]['metadata']['name'])
+        embed.set_thumbnail(url=data['data']['segments'][1]['metadata']['imageUrl'])
+        embed.set_author(name=arg2, icon_url=data['data']['platformInfo']['avatarUrl'])
+        embed.set_image(url=f"{data['data']['segments'][0]['stats']['rankScore']['metadata']['iconUrl']}")
+        embed.set_footer(text="Par ! 𝕁𝕠𝕜𝕖𝕣#5236, api : tracker.gg",
+                         icon_url="https://cdn.discordapp.com/avatars/658714497778974762/806ca93cc1711a4023a127d680691598.png?size=128")
+        embed.add_field(name="Kill avec " + data['data']['segments'][1]['metadata']['name'],
+                        value=arg2 + " à fait " + data['data']['segments'][0]['stats']['kills'][
+                            'displayValue'] + " kills avec " + data['data']['segments'][1]['metadata']['name'])
+        embed.add_field(name="Kill avec " + data['data']['segments'][2]['metadata']['name'],
+                        value=arg2 + " à fait " + data['data']['segments'][0]['stats']['kills'][
+                            'displayValue'] + ' kills avec ' + data['data']['segments'][2]['metadata']['name'])
+        embed.add_field(name="Plus d'info sur :",
+                        value="https://apex.tracker.gg/apex/profile/" + arg1 + "/" + arg2 + "/overview", inline=False)
+
+        await ctx.send(embed=embed)
+
+
+    if arg1 == "xbl":
+        embed = discord.Embed(title="**Stats pour** " + arg2 + " **[XBOX]**", colour=0xff0000)
+        embed.add_field(name="**Level:**", value=data['data']['segments'][0]['stats']['level']['displayValue'])
+        embed.add_field(name="**Rank:**",
+                        value=data['data']['segments'][0]['stats']['rankScore']['metadata']['rankName'])
+        embed.add_field(name="**Rank Score:**", value=data['data']['segments'][0]['stats']['rankScore']['value'])
+        embed.add_field(name="**Kills:**", value=data['data']['segments'][0]['stats']['kills']['displayValue'])
+        embed.add_field(name="Légende actuelle:", value=data['data']['segments'][1]['metadata']['name'])
+        embed.set_thumbnail(url=data['data']['segments'][1]['metadata']['imageUrl'])
+        embed.set_author(name=arg2, icon_url=data['data']['platformInfo']['avatarUrl'])
+        embed.set_image(url=f"{data['data']['segments'][0]['stats']['rankScore']['metadata']['iconUrl']}")
+        embed.set_footer(text="Par ! 𝕁𝕠𝕜𝕖𝕣#5236, api : tracker.gg",
+                         icon_url="https://cdn.discordapp.com/avatars/658714497778974762/806ca93cc1711a4023a127d680691598.png?size=128")
+        embed.add_field(name="Kill avec " + data['data']['segments'][1]['metadata']['name'],
+                        value=arg2 + " à fait " + data['data']['segments'][0]['stats']['kills'][
+                            'displayValue'] + " kills avec " + data['data']['segments'][1]['metadata']['name'])
+        embed.add_field(name="Kill avec " + data['data']['segments'][2]['metadata']['name'],
+                        value=arg2 + " à fait " + data['data']['segments'][0]['stats']['kills'][
+                            'displayValue'] + ' kills avec ' + data['data']['segments'][2]['metadata']['name'])
+        embed.add_field(name="Plus d'info sur :",
+                        value="https://apex.tracker.gg/apex/profile/" + arg1 + "/" + arg2 + "/overview", inline=False)
+
+        await ctx.send(embed=embed)
+
+
+@apex.error
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandInvokeError):
+        await ctx.send("Le joueur que vous essayez de chercher n'a pas été trouver ! Veuillez rentrer !apex plateform(origin pour pc, psn pour playstation, xbl pour xbox) et son identifiant !")
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("Veuillez rentrer !apex plateform(origin pour pc, psn pour playstation, xbl pour xbox) et son identifiant !")
 
 @bot.event
 async def on_ready():
