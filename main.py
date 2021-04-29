@@ -87,7 +87,7 @@ async def a(ctx, arg1, arg2):
         await ctx.send(embed=embed)
 
 
-@apex.error
+@a.error
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandInvokeError):
         await ctx.send("Le joueur que vous essayez de chercher n'a pas été trouver ! Veuillez rentrer !apex plateform(origin pour pc, psn pour playstation, xbl pour xbox) et son identifiant !")
