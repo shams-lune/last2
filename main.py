@@ -14,7 +14,7 @@ guild_subscriptions = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 @bot.command()
-async def apex(ctx, arg1, arg2):
+async def a(ctx, arg1, arg2):
     plateform = arg1
     nom_du_joueur = arg2
     r = requests.get(url="https://public-api.tracker.gg/v2/apex/standard/profile/"+ plateform + "/" + nom_du_joueur, headers={"TRN-Api-Key":"16e7d718-8c74-4146-be31-8c31cf8ada29"})
