@@ -41,13 +41,7 @@ userid = twitch.get_users(logins=['SalvEcko'])['data'][0]['id']
 url = TWITCH_STREAM_API_ENDPOINT_V5.format(userid)
 req = requests.Session().get(url, headers=API_HEADERS)
 jsondata = req.json()
-print(jsondata['stream'])
 
-intents = discord.Intents.all()
-bot = commands.Bot(command_prefix='$', intents=intents)
-#cd C:\Users\mtagd\OneDrive\Bureau
-
-game = jsondata['stream']['channel']['status']
 
 @bot.command()
 async def a(ctx, arg1, arg2):
