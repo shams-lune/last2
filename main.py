@@ -3,7 +3,18 @@ from discord.ext import commands
 import os
 import json
 import requests
-
+import requests
+import json
+import sys
+from twitchAPI.twitch import Twitch
+import os
+import json
+import discord
+import requests
+from discord.ext import tasks, commands
+from twitchAPI.twitch import Twitch
+from discord.utils import get
+import time
 
 
 token = os.getenv("DISCORD_BOT_TOKEN")
@@ -12,6 +23,54 @@ intents = discord.Intents.default()
 intents.members = True
 guild_subscriptions = True
 bot = commands.Bot(command_prefix="!", intents=intents)
+
+client_id = "ksfaak3qm1po2lva4rbteotitqqel4"
+client_secret = "rwbehbkk6z7b0zxyi3parc8phcc2hj"
+twitch = Twitch(client_id, client_secret)
+twitch.authenticate_app([])
+TWITCH_STREAM_API_ENDPOINT_V5 = "https://api.twitch.tv/kraken/streams/{}"
+API_HEADERS = {
+    'Client-ID': client_id,
+    'Accept': 'application/vnd.twitchtv.v5+json',
+}
+
+response  = requests.get("https://api.twitch.tv/kraken/streams/", headers=API_HEADERS)
+response_json = response.json()
+
+userid = twitch.get_users(logins=['SalvEcko'])['data'][0]['id']
+url = TWITCH_STREAM_API_ENDPOINT_V5.format(userid)
+req = requests.Session().get(url, headers=API_HEADERS)
+jsondata = req.json()
+print(jsondata['stream'])
+
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix='$', intents=intents)
+#cd C:\Users\mtagd\OneDrive\Bureau
+
+game = jsondata['stream']['channel']['status']
+
+@bot.event
+async def on_ready():
+	print("Bot prêt")
+	while 1+1 != 0: 
+		if jsondata['stream'] is not None:
+			channel = bot.get_channel(789483969943044116)
+			embed=discord.Embed(title=f"{jsondata['stream']['channel']['status']}", url=f"{jsondata['stream']['channel']['url']}", color=0x02dd08)
+			embed.set_author(name="SalvEcko is now live on Twitch!", url=f"{jsondata['stream']['channel']['url']}", icon_url=f"{jsondata['stream']['channel']['logo']}")
+			embed.add_field(name=f"Playing {jsondata['stream']['channel']['game']} for {jsondata['stream']['viewers']} viewers", value=f"[Watch Stream]({jsondata['stream']['channel']['url']})",inline=True)
+			embed.set_image(url=f"{jsondata['stream']['preview']['large']}")
+			await channel.send(f"@everyone {jsondata['stream']['channel']['status']}\n{jsondata['stream']['channel']['url']}\n", embed=embed)
+			break
+		elif game is not jsondata['stream']['channel']['status']:
+			embed=discord.Embed(title=f"{jsondata['stream']['channel']['status']}", url=f"{jsondata['stream']['channel']['url']}", color=0x02dd08)
+			embed.set_author(name="SalvEcko is now live on Twitch!", url=f"{jsondata['stream']['channel']['url']}", icon_url=f"{jsondata['stream']['channel']['logo']}")
+			embed.add_field(name=f"Playing {jsondata['stream']['channel']['game']} for {jsondata['stream']['viewers']} viewers", value=f"[Watch Stream]({jsondata['stream']['channel']['url']})",inline=True)
+			embed.set_image(url=f"{jsondata['stream']['preview']['large']}")
+			embed.set_thumbnail(url=f"{jsondata['stream']['channel']['url']}")
+			await channel.send(f"@everyone {jsondata['stream']['channel']['status']}\n{jsondata['stream']['channel']['url']}\n", embed=embed)
+			break
+		else:
+			continue
 
 @bot.command()
 async def a(ctx, arg1, arg2):
