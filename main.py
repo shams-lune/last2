@@ -135,7 +135,7 @@ async def on_ready():
     print('Le bot est allumé')
     await bot.change_presence(activity=discord.Streaming(name="SalvEcko", url="https://www.twitch.tv/salvecko"))
     while 1+1 != 0: 
-	if jsondata['stream'] is not None:
+        if jsondata['stream'] is not None:
         	channel = bot.get_channel(845353988165206087)
                 embed=discord.Embed(title=f"{jsondata['stream']['channel']['status']}", url=f"{jsondata['stream']['channel']['url']}", color=0x02dd08)                
 	    	embed.set_author(name="SalvEcko is now live on Twitch!", url=f"{jsondata['stream']['channel']['url']}", icon_url=f"{jsondata['stream']['channel']['logo']}")
