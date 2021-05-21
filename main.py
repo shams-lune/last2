@@ -137,7 +137,7 @@ async def on_ready():
     while 1+1 != 0: 
     	if jsondata['stream'] is not None:
         	channel = bot.get_channel(845353988165206087)
-	    	embed=discord.Embed(title=f"{jsondata['stream']['channel']['status']}", url=f"{jsondata['stream']['channel']['url']}", color=0x02dd08)
+                embed=discord.Embed(title=f"{jsondata['stream']['channel']['status']}", url=f"{jsondata['stream']['channel']['url']}", color=0x02dd08)
 	    	embed.set_author(name="SalvEcko is now live on Twitch!", url=f"{jsondata['stream']['channel']['url']}", icon_url=f"{jsondata['stream']['channel']['logo']}")
 	    	embed.add_field(name=f"Playing {jsondata['stream']['channel']['game']} for {jsondata['stream']['viewers']} viewers", value=f"[Watch Stream]({jsondata['stream']['channel']['url']})",inline=True)
 	    	embed.set_image(url=f"{jsondata['stream']['preview']['large']}")
