@@ -49,29 +49,6 @@ bot = commands.Bot(command_prefix='$', intents=intents)
 
 game = jsondata['stream']['channel']['status']
 
-@bot.event
-async def on_ready():
-	print("Bot prêt")
-	while 1+1 != 0: 
-		if jsondata['stream'] is not None:
-			channel = bot.get_channel(845353988165206087)
-			embed=discord.Embed(title=f"{jsondata['stream']['channel']['status']}", url=f"{jsondata['stream']['channel']['url']}", color=0x02dd08)
-			embed.set_author(name="SalvEcko is now live on Twitch!", url=f"{jsondata['stream']['channel']['url']}", icon_url=f"{jsondata['stream']['channel']['logo']}")
-			embed.add_field(name=f"Playing {jsondata['stream']['channel']['game']} for {jsondata['stream']['viewers']} viewers", value=f"[Watch Stream]({jsondata['stream']['channel']['url']})",inline=True)
-			embed.set_image(url=f"{jsondata['stream']['preview']['large']}")
-			await channel.send(f"@everyone {jsondata['stream']['channel']['status']}\n{jsondata['stream']['channel']['url']}\n", embed=embed)
-			break
-		elif game is not jsondata['stream']['channel']['status']:
-			embed=discord.Embed(title=f"{jsondata['stream']['channel']['status']}", url=f"{jsondata['stream']['channel']['url']}", color=0x02dd08)
-			embed.set_author(name="SalvEcko is now live on Twitch!", url=f"{jsondata['stream']['channel']['url']}", icon_url=f"{jsondata['stream']['channel']['logo']}")
-			embed.add_field(name=f"Playing {jsondata['stream']['channel']['game']} for {jsondata['stream']['viewers']} viewers", value=f"[Watch Stream]({jsondata['stream']['channel']['url']})",inline=True)
-			embed.set_image(url=f"{jsondata['stream']['preview']['large']}")
-			embed.set_thumbnail(url=f"{jsondata['stream']['channel']['url']}")
-			await channel.send(f"@everyone {jsondata['stream']['channel']['status']}\n{jsondata['stream']['channel']['url']}\n", embed=embed)
-			break
-		else:
-			continue
-
 @bot.command()
 async def a(ctx, arg1, arg2):
     plateform = arg1
@@ -157,6 +134,25 @@ async def on_command_error(ctx, error):
 async def on_ready():
     print('Le bot est allumé')
     await bot.change_presence(activity=discord.Streaming(name="SalvEcko", url="https://www.twitch.tv/salvecko"))
+    while 1+1 != 0: 
+		if jsondata['stream'] is not None:
+			channel = bot.get_channel(845353988165206087)
+			embed=discord.Embed(title=f"{jsondata['stream']['channel']['status']}", url=f"{jsondata['stream']['channel']['url']}", color=0x02dd08)
+			embed.set_author(name="SalvEcko is now live on Twitch!", url=f"{jsondata['stream']['channel']['url']}", icon_url=f"{jsondata['stream']['channel']['logo']}")
+			embed.add_field(name=f"Playing {jsondata['stream']['channel']['game']} for {jsondata['stream']['viewers']} viewers", value=f"[Watch Stream]({jsondata['stream']['channel']['url']})",inline=True)
+			embed.set_image(url=f"{jsondata['stream']['preview']['large']}")
+			await channel.send(f"@everyone {jsondata['stream']['channel']['status']}\n{jsondata['stream']['channel']['url']}\n", embed=embed)
+			break
+		elif game is not jsondata['stream']['channel']['status']:
+			embed=discord.Embed(title=f"{jsondata['stream']['channel']['status']}", url=f"{jsondata['stream']['channel']['url']}", color=0x02dd08)
+			embed.set_author(name="SalvEcko is now live on Twitch!", url=f"{jsondata['stream']['channel']['url']}", icon_url=f"{jsondata['stream']['channel']['logo']}")
+			embed.add_field(name=f"Playing {jsondata['stream']['channel']['game']} for {jsondata['stream']['viewers']} viewers", value=f"[Watch Stream]({jsondata['stream']['channel']['url']})",inline=True)
+			embed.set_image(url=f"{jsondata['stream']['preview']['large']}")
+			embed.set_thumbnail(url=f"{jsondata['stream']['channel']['url']}")
+			await channel.send(f"@everyone {jsondata['stream']['channel']['status']}\n{jsondata['stream']['channel']['url']}\n", embed=embed)
+			break
+		else:
+			continue
 
 @bot.listen()
 async def on_message(message):
